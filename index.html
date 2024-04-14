@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Plug&Play Multi-Modal Generation in Text-to-Image Diffusion Models.">
+  <meta name="keywords" content="Multimodal generaiton, spatial conditioning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MaxFusion: Multimodal Generation</title>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">MaxFusion: Plug&Play Multi-Modal Generation in
+            Text-to-Image Diffusion Models</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://nithin-gk.github.io/">Nithin Gopalakrishnan Nair</a>,</span>
+            <span class="author-block">
+              <a href="https://engineering.jhu.edu/vpatel36/team/vishalpatel/">Vishal M Patel</a>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Johns Hopkins University,</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="./static/images/Dreamguider1.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Nithin-GK/Dreamguider"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <img src="./static/images/applications.pdf" alt="Toby" id="toby" style="height: 100%;">
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Different Applications</span> An illustration of various applications of our method
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Diffusion models have emerged as a formidable tool for training-free conditional generation. However, a key hurdle in inference-time guidance techniques is the need for compute-heavy backpropagation through the diffusion network for estimating the guidance direction. Moreover, these techniques often require handcrafted parameter tuning on a case-by-case basis.
+Although some recent works have introduced minimal compute methods for linear inverse problems, a generic lightweight guidance solution to both linear and non-linear guidance problems is still missing. 
+          </p>
+          <p>
+            To this end, we propose Dreamguider, a method that enables inference-time guidance without the compute-heavy backpropagation through the diffusion network. The key idea is to approximate the guidance direction with respect to the current sample, thereby removing the backpropagation operation. Moreover, we propose an empirical guidance scale that works for a wide variety of tasks, hence removing the need for handcrafted parameter tuning. We further introduce an effective lightweight augmentation strategy that significantly boosts the performance during inference-time guidance. We present experiments using Dreamguider on multiple linear and non-linear tasks across multiple datasets and models to show the effectiveness of the proposed modules.          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!--/ Matting. -->
+
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Conditioning Intensity in Variance Maps</h2>
+
+        <!-- Interpolating. -->
+        <h3 class="title is-4">Control Modules</h3>
+        <div class="content has-text-justified">
+          <p>
+            We visualize variance Maps across channels for intermediate features of ControlNet for different
+modalities. As we can see the variance map has high values where the condition is present and
+has low values for locations where the condition is absent.
+          </p>
+        </div>
+        <div class="title is-4">
+          <img src="./static/images/variance_control.png" alt="Toby" id="toby" style="height: 100%;">
+        </div>
+        <br/>
+        <!--/ Interpolating. -->
+
+        <!-- Re-rendering. -->
+        <h3 class="title is-5">Intermediate features of a Diffusion Model</h3>
+        <div class="content has-text-justified">
+          <p>
+            Figure illustrating variance maps of intermediate features of encoder and decoder for the
+text prompt "An astronaut riding a horse" for the 5th timestep of diffusion.
+          </p>
+        </div>
+        <div class="title is-5">
+          <img src="./static/images/variance_text.png" alt="Toby" id="toby" style="height: 100%;">
+        </div>
+        <!--/ Re-rendering. -->
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+
+
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!--/ Matting. -->
+
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Our Approach</h2>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <figure class="image">
+              <img src="./static/images/method.png" alt="Method">
+            </figure>
+          </div>
+        </div>
+        <!-- Interpolating. -->     
+        <div class="content has-text-justified">
+          <p>
+            An illustration of MaxFusion. During the progression through the Text to Image Model, intermediate features are consolidated at each location, and the resulting merged features are subsequently transmitted to the diffusion module. Please note the colors during the merging and unmerging
+operation. Similar features are not unmerged and are passed as such to the next network layer.
+Non-similar intermediate outputs are passed without any change.
+          </p>
+        </div>
+
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!--/ Matting. -->
+
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Qualitative results</h2>
+
+        <!-- Interpolating. -->
+        <h3 class="title is-4">Contradictory conditioning</h3>
+        <div class="content has-text-justified">
+          <p>
+            Qualitative comparisons for contradictory conditions from different modalities. Figure illustrates the case of different conditions where out method shows a clear advantage over existing approaches. The text prompts used are (1): "Walter White in a living room, GTA style." (2) "A bicycle in a garden." (3) "A car in front of arc de triomphe"
+          </p>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <figure class="image">
+              <img src="./static/images/Contradictory_results.png" alt="Contradictory conditioning results">
+            </figure>
+          </div>
+        </div>
+        
+        <br/>
+        <!--/ Interpolating. -->
+        
+        <!-- Re-rendering. -->
+        <h3 class="title is-5">Complementary conditioning</h3>
+        <div class="content has-text-justified">
+          <p>
+            Qualitative comparisons for complimentary conditions in COCO dataset. For the
+        unimodal models we condition with its corresponding conditions. For multimodal models, we
+        condition using both the Tasks. The text prompts used for conditioning are: from top (1): "A
+        banana sitting on a chair and looking at the beach." (2) "A brocolli in a hand." (3) "A blackboard
+        and table in a classroom" (4) "A couple of sheep standing"
+          </p>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <figure class="image">
+              <img src="./static/images/Complementary_results.png" alt="Complementary conditioning results">
+            </figure>
+          </div>
+        </div>
+        
+        <!--/ Re-rendering. -->
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+
+
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <!-- <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre> -->
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/images/Maxfusion.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/Nithin-GK/MaxFusion" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Acknowledgement: The website Template taken from  <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
