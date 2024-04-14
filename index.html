@@ -6,7 +6,7 @@
         content="Plug&Play Multi-Modal Generation in Text-to-Image Diffusion Models.">
   <meta name="keywords" content="Multimodal generaiton, spatial conditioning">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MaxFusion: Multimodal Generation</title>
+  <title>Dreamguider</title>
 
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
@@ -38,9 +38,11 @@
           <h1 class="title is-1 publication-title">Dreamguider: Tuning Free Conditional Generation</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://nithin-gk.github.io/">Nithin Gopalakrishnan Nair</a>,</span>
+              <a href="https://nithin-gk.github.io/">Nithin Gopalakrishnan Nair</a></span>
+              <span class="author-block">
+                and</span>
             <span class="author-block">
-              <a href="https://engineering.jhu.edu/vpatel36/team/vishalpatel/">Vishal M Patel</a>,
+              <a href="https://engineering.jhu.edu/vpatel36/team/vishalpatel/">Vishal M Patel</a>
             </span>
           </div>
 
@@ -132,35 +134,21 @@ Although some recent works have introduced minimal compute methods for linear in
     <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Conditioning Intensity in Variance Maps</h2>
+        <h2 class="title is-3">Difference betweeen dreamguider and existing methods</h2>
 
         <!-- Interpolating. -->
-        <h3 class="title is-4">Control Modules</h3>
         <div class="content has-text-justified">
           <p>
-            We visualize variance Maps across channels for intermediate features of ControlNet for different
-modalities. As we can see the variance map has high values where the condition is present and
-has low values for locations where the condition is absent.
+            Table illustrating the capabilities of Dreamguider over existing methods performing
+inference-time guidance
           </p>
         </div>
         <div class="title is-4">
-          <img src="./static/images/variance_control.png" alt="Toby" id="toby" style="height: 100%;">
+          <img src="./static/images/method.png" alt="Toby" id="toby" style="height: 100%;">
         </div>
         <br/>
         <!--/ Interpolating. -->
 
-        <!-- Re-rendering. -->
-        <h3 class="title is-5">Intermediate features of a Diffusion Model</h3>
-        <div class="content has-text-justified">
-          <p>
-            Figure illustrating variance maps of intermediate features of encoder and decoder for the
-text prompt "An astronaut riding a horse" for the 5th timestep of diffusion.
-          </p>
-        </div>
-        <div class="title is-5">
-          <img src="./static/images/variance_text.png" alt="Toby" id="toby" style="height: 100%;">
-        </div>
-        <!--/ Re-rendering. -->
 
       </div>
     </div>
