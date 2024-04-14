@@ -2,22 +2,17 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-        content="Plug&Play Multi-Modal Generation in Text-to-Image Diffusion Models.">
+  <meta name="description" content="Plug&Play Multi-Modal Generation in Text-to-Image Diffusion Models.">
   <meta name="keywords" content="Multimodal generaiton, spatial conditioning">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dreamguider</title>
 
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.svg">
 
@@ -26,253 +21,263 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <style>
+    body {
+      font-family: 'Google Sans', sans-serif;
+      color: #333;
+      background-color: #f7f7f7;
+    }
+
+    .hero {
+      background-color: #1a237e;
+      color: #fff;
+      padding: 100px 0;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero .subtitle {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 36px;
+      margin-bottom: 40px;
+      color: #1a237e;
+    }
+
+    .image-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .image-container img:hover {
+      transform: translateY(-5px);
+    }
+
+    .footer {
+      background-color: #1a237e;
+      color: #fff;
+      padding: 40px 0;
+    }
+
+    .footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-
-
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Dreamguider: Tuning Free Conditional Generation</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://nithin-gk.github.io/">Nithin Gopalakrishnan Nair</a></span>
-              <span class="author-block">
-                and</span>
-            <span class="author-block">
-              <a href="https://engineering.jhu.edu/vpatel36/team/vishalpatel/">Vishal M Patel</a>
-            </span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">Johns Hopkins University</span>
-          </div>
-
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
           <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href="./static/images/Dreamguider1.pdf"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
+            <h1 class="title is-1 publication-title">Dreamguider: Tuning Free Conditional Generation</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://nithin-gk.github.io/">Nithin Gopalakrishnan Nair</a>
               </span>
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/Nithin-GK/Dreamguider"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
+              <span class="author-block">and</span>
+              <span class="author-block">
+                <a href="https://engineering.jhu.edu/vpatel36/team/vishalpatel/">Vishal M Patel</a>
               </span>
             </div>
 
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Johns Hopkins University</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="./static/images/Dreamguider1.pdf" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2011.12948" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/Nithin-GK/Dreamguider" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-        <img src="./static/images/applications-1.png" alt="Toby" id="toby" style="height: 100%;">
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Different Applications</span> An illustration of various applications of our method
-      </h2>
-    </div>
-  </div>
-</section>
-
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Diffusion models have emerged as a formidable tool for training-free conditional generation. However, a key hurdle in inference-time guidance techniques is the need for compute-heavy backpropagation through the diffusion network for estimating the guidance direction. Moreover, these techniques often require handcrafted parameter tuning on a case-by-case basis.
-Although some recent works have introduced minimal compute methods for linear inverse problems, a generic lightweight guidance solution to both linear and non-linear guidance problems is still missing. 
-          </p>
-          <p>
-            To this end, we propose Dreamguider, a method that enables inference-time guidance without the compute-heavy backpropagation through the diffusion network. The key idea is to approximate the guidance direction with respect to the current sample, thereby removing the backpropagation operation. Moreover, we propose an empirical guidance scale that works for a wide variety of tasks, hence removing the need for handcrafted parameter tuning. We further introduce an effective lightweight augmentation strategy that significantly boosts the performance during inference-time guidance. We present experiments using Dreamguider on multiple linear and non-linear tasks across multiple datasets and models to show the effectiveness of the proposed modules.          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
-
-    <!--/ Paper video. -->
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Functionality of Dreamguider</h2>
-        <div class="content has-text-justified">
-          <p>Table illustrating the capabilities of Dreamguider over existing methods performing inference-time guidance</p>
-        </div>
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
         <div class="image-container">
-          <img src="./static/images/difference.png" alt="Toby" id="toby">
+          <img src="./static/images/applications-1.png" alt="Applications" id="applications">
         </div>
+        <h2 class="subtitle has-text-centered">
+          <span class="dnerf">Different Applications</span> An illustration of various applications of our method
+        </h2>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <!--/ Matting. -->
-
-    <!-- Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Our Approach</h2>
-        <div class="columns is-centered">
-          <div class="column is-8">
-            <figure class="image">
-              <img src="./static/images/method.png" alt="Method">
-            </figure>
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 section-title">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Diffusion models have emerged as a formidable tool for training-free conditional generation. However, a key hurdle in inference-time guidance techniques is the need for compute-heavy backpropagation through the diffusion network for estimating the guidance direction. Moreover, these techniques often require handcrafted parameter tuning on a case-by-case basis. Although some recent works have introduced minimal compute methods for linear inverse problems, a generic lightweight guidance solution to both linear and non-linear guidance problems is still missing.
+            </p>
+            <p>
+              To this end, we propose Dreamguider, a method that enables inference-time guidance without the compute-heavy backpropagation through the diffusion network. The key idea is to approximate the guidance direction with respect to the current sample, thereby removing the backpropagation operation. Moreover, we propose an empirical guidance scale that works for a wide variety of tasks, hence removing the need for handcrafted parameter tuning. We further introduce an effective lightweight augmentation strategy that significantly boosts the performance during inference-time guidance. We present experiments using Dreamguider on multiple linear and non-linear tasks across multiple datasets and models to show the effectiveness of the proposed modules.
+            </p>
           </div>
         </div>
-        <!-- Interpolating. -->     
-        <div class="content has-text-justified">
-          <p>
-            An illustration of the difference between the existing method and our method. Existing works backpropagate through the diffusion network to perform guidance at each timestep, whereas we find the gradients with respect to the MMSE estimate and the predicted noise, thereby bypassing the expensive backpropagation operation.
-          </p>
-        </div>
-
-
       </div>
     </div>
-    <!--/ Animation. -->
+  </section>
 
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <!--/ Matting. -->
-
-    <!-- Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Qualitative results</h2>
-
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Results on Natural Images</h3>
-        <div class="content has-text-justified">
-          <p>
-            Qualitative comparisons for linear inverse problems on ImageNet."
-          </p>
-        </div>
-        <div class="columns is-centered">
-          <div class="column is-8">
-            <figure class="image">
-              <img src="./static/images/imagenet.png" alt="Contradictory conditioning results">
-            </figure>
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3 section-title">Functionality of Dreamguider</h2>
+          <div class="content has-text-justified">
+            <p>Table illustrating the capabilities of Dreamguider over existing methods performing inference-time guidance</p>
+          </div>
+          <div class="image-container">
+            <img src="./static/images/difference.png" alt="Difference" id="difference">
           </div>
         </div>
-        
-        <br/>
-        <!--/ Interpolating. -->
-        
-        <!-- Re-rendering. -->
-        <h3 class="title is-5">Results on Faces</h3>
-        <div class="content has-text-justified">
-          <p>
-            Qualitative comparisons for linear inverse problems on ImageNet on ffhq dataset"
-          </p>
-        </div>
-        <div class="columns is-centered">
-          <div class="column is-8">
-            <figure class="image">
-              <img src="./static/images/face.png" alt="Complementary conditioning results">
-            </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3 section-title">Our Approach</h2>
+          <div class="columns is-centered">
+            <div class="column is-8">
+              <figure class="image">
+                <img src="./static/images/method.png" alt="Method">
+              </figure>
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <p>
+              An illustration of the difference between the existing method and our method. Existing works backpropagate through the diffusion network to perform guidance at each timestep, whereas we find the gradients with respect to the MMSE estimate and the predicted noise, thereby bypassing the expensive backpropagation operation.
+            </p>
           </div>
         </div>
-        
-        <!--/ Re-rendering. -->
-
       </div>
     </div>
-    <!--/ Animation. -->
+  </section>
 
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3 section-title">Qualitative results</h2>
 
+          <h3 class="title is-4 section-title">Results on Natural Images</h3>
+          <div class="content has-text-justified">
+            <p>
+              Qualitative comparisons for linear inverse problems on ImageNet."
+            </p>
+          </div>
+          <div class="columns is-centered">
+            <div class="column is-8">
+              <figure class="image">
+                <img src="./static/images/imagenet.png" alt="ImageNet results">
+              </figure>
+            </div>
+          </div>
 
-    <!--/ Concurrent Work. -->
+          <br/>
 
-  </div>
-</section>
-
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <!-- <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}</code></pre> -->
-  </div>
-</section>
-
-
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/images/Maxfusion.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/Nithin-GK/MaxFusion" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            Acknowledgement: The website Template taken from  <a
-              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> 
-          </p>
+          <h3 class="title is-5 section-title">Results on Faces</h3>
+          <div class="content has-text-justified">
+            <p>
+              Qualitative comparisons for linear inverse problems on ImageNet on ffhq dataset"
+            </p>
+          </div>
+          <div class="columns is-centered">
+            <div class="column is-8">
+              <figure class="image">
+                <img src="./static/images/face.png" alt="Face results">
+              </figure>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </section>
 
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <!-- Add your BibTeX citation here -->
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="./static/images/Maxfusion.pdf">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://github.com/Nithin-GK/MaxFusion" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              Acknowledgement: The website Template taken from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
