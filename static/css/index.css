@@ -155,3 +155,15 @@ body {
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
+
+
+.image-container {
+  text-align: center;
+}
+
+#toby {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
